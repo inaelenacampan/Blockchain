@@ -12,6 +12,8 @@
 
 int main(){
 
+    srand(time(NULL));
+
     /*
         Question 1.1
     */
@@ -30,9 +32,9 @@ int main(){
 
     int nb;
     int val_bool = 0;
-
+    
     for( nb = 3 ; nb < 100000000000 && val_bool == 0; nb = nb + 2 ){
-        
+
         clock_t begin = clock();
         int res = is_prime_naive(nb);
         clock_t end = clock();
@@ -44,6 +46,38 @@ int main(){
             printf("Le plus grand nombre premier trouve vaut : %d\n", nb);
         }
     }
+    /*
+        Question 1.5
+    */
+
+    FILE *test_pow = NULL;
+    test_pow = fopen("test_pow.txt","w");
+
+    FILE * test_pow_naive = NULL;
+    test_pow_naive = fopen("test_pow_naive.txt","w");
     
+    int m;
+    double time;
+    clock_t begin, end;
+
+    for( m = 100; m < 500 ; m = m + 3){
+
+        begin = clock();
+        long res1 = modpow(27008900, m, 130920);
+        end = clock();
+
+        time = (double)(end - begin) / CLOCKS_PER_SEC;
+
+        fprintf(test_pow,"%lf\t%lf\n",time,(double)m);
+
+        begin = clock();
+        long res2 = modpow_naive(27008900, m, 130920);
+        end = clock();
+
+        time = (double)(end - begin) / CLOCKS_PER_SEC;
+
+        fprintf(test_pow_naive,"%lf\t%lf\n",time,(double)m);
+    }
+
     return 0;
 }

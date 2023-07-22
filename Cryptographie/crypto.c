@@ -43,3 +43,22 @@ long modpow_naive(long a, long m, long n){
 
     return res;
 }
+
+/*
+    Question 1.4
+*/
+
+long modpow(long a, long m, long n){
+
+    /*cas de base*/
+
+    if( m == 0 ) return 1;
+
+    long res = modpow(a, m/2, n);
+
+    if ( m % 2 == 0){
+        return (res * res) % n;
+    }
+
+    return (a * res * res) % n ;
+}

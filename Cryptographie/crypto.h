@@ -23,4 +23,11 @@ int is_prime_naive(long p);
 
 long modpow_naive(long a, long m, long n);
 
+/*
+    Question 1.4 : version recursive
+    Complexite de la fonction : O(log2(m))
+*/
+
+long modpow(long a, long m, long n);
+
 #endif
