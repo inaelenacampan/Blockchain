@@ -62,3 +62,7 @@ long modpow(long a, long m, long n){
 
     return (a * res * res) % n ;
 }
+
+/*
+    TEST DE MILLER-RABIN
+*/
