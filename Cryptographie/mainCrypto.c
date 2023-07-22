@@ -60,6 +60,9 @@ int main(){
     double time;
     clock_t begin, end;
 
+    fprintf(test_pow,"temps\tm\n");
+    fprintf(test_pow_naive,"temps\tm\n");
+
     for( m = 100; m < 500 ; m = m + 3){
 
         begin = clock();
