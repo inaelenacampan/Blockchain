@@ -12,7 +12,6 @@ Dossier _`Cryptographie`_ contenant :
 
 + `crypto.c` et `crypto.h` (fichiers qui definissent les fonctions de la bibliothéques)
 + `mainCrypto.c` (fichier de tests)
-+ fonctions manipulées :
 
 ```c
     
@@ -23,7 +22,11 @@ Dossier _`Cryptographie`_ contenant :
     int is_prime_naive(long p);
     long modpow_naive(long a, long m, long n);
     long modpow(long a, long m, long n);
+```
 
++ Question 1.5 : [Performances des deux méthodes d'exponentiation modulaire](plot.png)
+
+```c
     /*
         TEST DE MILLER-RABIN
         Question 1.7 : Probabilite d'erreur majoree par (1/4)**k
@@ -33,7 +36,4 @@ Dossier _`Cryptographie`_ contenant :
     long rand_long(long low, long up);
     int is_prime_miller(long p, int k);
     long random_prime_number(int low_size, int up_size, int k);
-
 ```
-
-![Fonction mod_pow](plot.png)
