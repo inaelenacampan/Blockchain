@@ -49,4 +49,27 @@ int is_prime_miller(long p, int k);
 
 long random_prime_number(int low_size, int up_size, int k);
 
+/*
+    Exercice 2 : Implémentation du protocole RSA
+*/
+
+long extended_gcd ( long s, long t, long *u, long *v);
+
+/*
+    Question 2.1
+*/
+
+void generate_key_values(long p, long q, long* n, long *s, long *u);
+
+/*
+    Question 2.2
+*/
+
+long* encrypt(char* chaine, long s, long n);
+
+/*
+    Question 2.3
+*/
+char* decrypt(long* crypted, int size, long u, long n);
+
 #endif

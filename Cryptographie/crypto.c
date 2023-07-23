@@ -159,3 +159,73 @@ long random_prime_number(int low_size, int up_size, int k){
 
     return a;
 }
+
+ /*
+    Exercice 2 : Implémentation du protocole RSA
+*/
+
+long extended_gcd ( long s, long t, long *u, long *v){
+
+    /*
+        version récursive de l'algorithme d'euclide
+    */
+    if (s == 0){
+        *u = 0;
+        *v = 1;
+        return t;
+    }
+
+    long uPrim , vPrim ;
+    long gcd = extended_gcd (t%s, s, &uPrim , & vPrim );
+    *u = vPrim -(t/s)* uPrim ;
+    *v = uPrim ;
+
+    return gcd ;
+}
+
+/*
+    Question 2.1
+*/
+
+void generate_key_values(long p, long q, long* n, long *s, long *u){
+
+    long t = (p-1) * (q-1);
+
+    do{
+        *s = rand_long(1,t);
+    }while (extended_gcd(*s, t, u, n) != 1);
+
+    *n = p * q ;
+}
+
+/*
+    Question 2.2
+*/
+
+long* encrypt(char* chaine, long s, long n){
+
+    int taille = strlen(chaine);
+    long * tab = (long *) malloc(sizeof(long) * taille);
+
+    for(int i = 0; i < taille; i++){
+        long number = chaine[i];
+        tab[i] = modpow(number, s, n);
+    }
+    return tab;
+}
+
+/*
+    Question 2.3
+*/
+
+char* decrypt(long* crypted, int size, long u, long n){
+
+    char * chaine = (char*) malloc(sizeof(char) * (size + 1));
+
+    for(int i = 0; i < size; i++){
+        chaine[i] = (char) modpow(crypted[i], u, n);
+    }
+
+    chaine[size] = '\0';
+    return chaine;
+}
