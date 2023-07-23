@@ -35,3 +35,5 @@ Dossier _`Cryptographie`_ contenant :
     long random_prime_number(int low_size, int up_size, int k);
 
 ```
+
+![Fonction mod_pow](plot.png)
