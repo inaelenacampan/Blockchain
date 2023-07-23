@@ -65,14 +65,14 @@ int main(){
     fprintf(test_pow,"temps\tm\n");
     fprintf(test_pow_naive,"temps\tm\n");
 
-    for( m = 100; m < 500 ; m = m + 3){
+    for( m = 5000; m < 10500 ; m = m + 503){
 
         srand(time(NULL));
         begin = clock();
         long res1 = modpow(27008900, m, 130920);
         end = clock();
 
-        temps = (double)(end - begin) / CLOCKS_PER_SEC;
+        temps = (double)(end - begin);
 
         fprintf(test_pow,"%lf\t%lf\n",temps,(double)m);
 
@@ -81,7 +81,7 @@ int main(){
         long res2 = modpow_naive(27008900, m, 130920);
         end = clock();
 
-        temps = (double)(end - begin) / CLOCKS_PER_SEC;
+        temps = (double)(end - begin);
 
         fprintf(test_pow_naive,"%lf\t%lf\n",temps,(double)m);
     }
