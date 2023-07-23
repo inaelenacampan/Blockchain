@@ -58,13 +58,15 @@ long modpow(long a, long m, long n){
 
     if( m == 0 ) return 1;
 
-    long res = modpow(a, m/2, n);
+    long res;
 
     if ( m % 2 == 0){
+        res = modpow(a, m/2, n);
         return (res * res) % n;
+    }else{
+        res = modpow(a, (m-1)/2, n);
+        return (a * res * res) % n ;
     }
-
-    return (a * res * res) % n ;
 }
 
 /*
@@ -128,6 +130,32 @@ int is_prime_miller(long p, int k){
     Question 1.8
 */
 
+long power(long a, long b){
+
+    if(b==0) return 1;
+
+    return a * power(a, b-1);
+}
+
 long random_prime_number(int low_size, int up_size, int k){
-    return 0;
+
+    /*
+        plus petit nombre avec low_size bits
+    */
+
+    long low_number = power(2, low_size);
+
+    /*
+        plus grand nombre avec up_size bits
+    */
+
+    long up_number = power(2, up_size + 1) - 1;
+
+    long a;
+
+    do{
+        a = rand_long(low_number, up_number);
+    } while(is_prime_miller(a, k)==0);
+
+    return a;
 }
