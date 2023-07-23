@@ -46,3 +46,10 @@ Dossier _`Cryptographie`_ contenant :
     long* encrypt(char* chaine, long s, long n);
     char* decrypt(long* crypted, int size, long u, long n);
 ```
+
+### Partie 2 : Déclarations sécurisées
+
+Dossier _`DeclarationsSecurisees`_ contenant :
+
++ `declsec.c` et `declsec.h` (fichiers qui definissent les fonctions de la bibliothéques)
++ `mainDeclsec.c` (fichier de tests)
