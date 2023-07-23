@@ -53,3 +53,14 @@ Dossier _`DeclarationsSecurisees`_ contenant :
 
 + `declsec.c` et `declsec.h` (fichiers qui definissent les fonctions de la bibliothéques)
 + `mainDeclsec.c` (fichier de tests)
+
+```c
+    /*
+        Exercice 3 : Manipulations de structures sécurisées
+    */
+
+    void init_key(Key* key, long val, long n);
+    void init_pair_keys(Key* pKey, Key* sKey, long low_size, long up_size);
+    char* key_to_str(Key* key);
+    Key* str_to_key(char* str);
+```
