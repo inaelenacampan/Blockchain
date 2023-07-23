@@ -15,9 +15,23 @@ Dossier _`Cryptographie`_ contenant :
 + fonctions manipulées :
 
 ```c
+    
+    /*
+        Exercice 1 : Résolution du problème de primalité
+    */
+
     int is_prime_naive(long p);
     long modpow_naive(long a, long m, long n);
     long modpow(long a, long m, long n);
 
-    // TEST DE MILLER-RABIN
+    /*
+        TEST DE MILLER-RABIN
+        Question 1.7 : Probabilite d'erreur majoree par (1/4)**k
+    */
+
+    int witness(long a, long b, long d, long p);
+    long rand_long(long low, long up);
+    int is_prime_miller(long p, int k);
+    long random_prime_number(int low_size, int up_size, int k);
+
 ```

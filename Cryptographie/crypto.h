@@ -10,6 +10,10 @@
 #include <unistd.h>
 
 /*
+    Exercice 1 : Résolution du problème de primalité
+*/
+
+/*
     Question 1.1 : p est un entier impair
     Complexite de la fonction : en O(p)
 */
@@ -31,7 +35,18 @@ long modpow_naive(long a, long m, long n);
 long modpow(long a, long m, long n);
 
 /*
+    Question 1.6
     TEST DE MILLER-RABIN
 */
+
+int witness(long a, long b, long d, long p);
+long rand_long(long low, long up);
+int is_prime_miller(long p, int k);
+
+/*
+    Question 1.8
+*/
+
+long random_prime_number(int low_size, int up_size, int k);
 
 #endif
