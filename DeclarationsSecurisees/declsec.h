@@ -33,7 +33,7 @@ typedef struct key{
 */
 
 typedef struct signature{
-    long * tab;
+    long * content;
     int size;
 } Signature;
 

@@ -78,7 +78,7 @@ Key* str_to_key(char* str){
 
 Signature* init_signature(long* content, int size){
     Signature * sgn = (Signature*) malloc(sizeof(Signature));
-    sgn->tab = content;
+    sgn->content = content;
     sgn->size = size;
     return sgn;
 }
