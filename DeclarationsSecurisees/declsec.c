@@ -71,3 +71,14 @@ Key* str_to_key(char* str){
 
     return res;
 }
+
+/*
+    Question 3.6
+*/
+
+Signature* init_signature(long* content, int size){
+    Signature * sgn = (Signature*) malloc(sizeof(Signature));
+    sgn->tab = content;
+    sgn->size = size;
+    return sgn;
+}
