@@ -164,3 +164,38 @@ Protected* init_protected(Key* pKey, char* mess, Signature* sgn){
 
     return protcd;
 }
+
+/*
+    Question 3.11
+*/
+
+int verify(Protected* pr){
+
+    char * chaine = decrypt((pr->sgn)->content, (pr->sgn)->size, (pr->pKey)->v, (pr->pKey)->n);
+    int res = strcmp(chaine, pr->mess);
+    
+    free(chaine);
+    return !(res == 0);
+}
+
+/*
+    Question 3.12
+*/
+
+char * protected_to_str(Protected* pr){
+
+    char * key_str = key_to_str(pr->pKey);
+    char * sgn_str = signature_to_str(pr->sgn);
+
+    char * str = malloc(sizeof(char) * (strlen(pr->mess) + strlen(key_str) + strlen(sgn_str) + 3));
+    sprintf(str, "%s %s %s", key_str, pr->mess, sgn_str);
+
+    free(key_str);
+    free(sgn_str);
+
+    return str;
+}
+
+Protected * str_to_protected(char * str){
+    return NULL;
+}

@@ -91,4 +91,17 @@ Signature * str_to_signature (char * str);
 
 Protected* init_protected(Key* pKey, char* mess, Signature* sgn);
 
+/*
+    Question 3.11
+*/
+
+int verify(Protected* pr);
+
+/*
+    Question 3.12
+*/
+
+char * protected_to_str(Protected* pr);
+Protected * str_to_protected(char * str);
+
 #endif
