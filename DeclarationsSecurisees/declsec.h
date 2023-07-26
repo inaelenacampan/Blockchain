@@ -38,6 +38,16 @@ typedef struct signature{
 } Signature;
 
 /*
+    Question 3.9
+*/
+
+typedef struct protected{
+    Key * pKey; // clé publique de l'émetteur
+    char * mess; // message
+    Signature * sgn ; // signature associée
+} Protected;
+
+/*
     Question 3.2
 */
 
@@ -61,5 +71,24 @@ Key* str_to_key(char* str);
 */
 
 Signature* init_signature(long* content, int size);
+
+/*
+    Question 3.7
+*/
+
+Signature* sign(char* mess, Key* sKey);
+
+/*
+    Question 3.8
+*/
+
+char * signature_to_str (Signature * sgn);
+Signature * str_to_signature (char * str);
+
+/*
+    Question 3.10
+*/
+
+Protected* init_protected(Key* pKey, char* mess, Signature* sgn);
 
 #endif

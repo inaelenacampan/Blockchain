@@ -82,3 +82,85 @@ Signature* init_signature(long* content, int size){
     sgn->size = size;
     return sgn;
 }
+
+/*
+    Question 3.7
+*/
+
+Signature* sign(char* mess, Key* sKey){
+    long * tab = encrypt(mess, sKey->v, sKey->n);
+    int size = strlen(mess);
+
+    return init_signature(tab, size);
+}
+
+/*
+    Question 3.8
+*/
+
+char * signature_to_str (Signature * sgn){
+
+    char * result = (char*)malloc(10*sgn->size* sizeof(char));
+
+    result [0]= '#';
+    int pos = 1;
+    char buffer[SIZE_MAX];
+
+    for (int i=0; i<sgn->size ; i++){
+        sprintf(buffer , "%lx", sgn->content[i]);
+        
+        for (int j=0; j< strlen(buffer); j++){
+            result [pos] = buffer[j];
+            pos = pos +1;
+        }
+        result[pos] = '#' ;
+        pos = pos+1;
+    }
+
+    result[pos] = '\0';
+    result = realloc(result,(pos +1)*sizeof(char));
+
+    return result ;
+}
+
+Signature * str_to_signature (char * str){
+    
+    int len = strlen(str);
+    long * content = (long *) malloc (sizeof (long)*len);
+    
+    int num = 0;
+    char buffer[SIZE_MAX];
+
+    int pos = 0;
+    
+    for (int i=0; i<len; i++){
+        if (str[i] != '#'){
+            buffer[pos] = str[i];
+            pos =pos +1;
+        } else {
+            if (pos != 0){
+                buffer[pos] = '\0' ;
+                sscanf (buffer, "%lx", &(content[num]));
+                num = num + 1;
+                pos = 0;
+            }
+        }
+    }
+    
+    content = realloc(content, num * sizeof(long));
+    return init_signature(content, num);
+}
+
+/*
+    Question 3.10
+*/
+
+Protected* init_protected(Key* pKey, char* mess, Signature* sgn){
+    Protected * protcd = (Protected *) malloc(sizeof(Protected));
+
+    protcd->pKey = pKey;
+    protcd->mess = strdup(mess);
+    protcd->sgn = sgn;
+
+    return protcd;
+}
