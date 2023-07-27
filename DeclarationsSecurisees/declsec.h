@@ -47,6 +47,12 @@ typedef struct protected{
     Signature * sgn ; // signature associée
 } Protected;
 
+typedef struct couple_keys{
+    Key * pKey;
+    Key * sKey;
+    int statut; // 0 pour un votant et 1 pour un candidat-votant
+} Couple_keys;
+
 /*
     Question 3.2
 */

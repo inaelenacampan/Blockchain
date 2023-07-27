@@ -277,10 +277,93 @@ void generate_random_data(int nv, int nc){
     FILE *declarations = NULL;
     declarations = fopen("../Data/declarations.txt","w");
 
+    if (((nv <= 0) || (nc <= 0)) || (nv < nc)){
+        exit(EXIT_FAILURE);
+    }
 
+    Couple_keys * arrayKeys = (Couple_keys *) malloc(sizeof(Couple_keys) * nv);
+    int i;
 
+    for(i = 0; i < nv ; i++){
 
-    
+        //initialisation des couples dans le tableau des clés
+
+        (arrayKeys[i]).pKey = malloc(sizeof(Key));
+        (arrayKeys[i]).sKey = malloc(sizeof(Key));
+        (arrayKeys[i]).statut = 0;
+
+        init_pair_keys((arrayKeys[i]).pKey, (arrayKeys[i]).sKey, 3, 7);
+
+        char * pKey_str = key_to_str((arrayKeys[i]).pKey);
+        char * sKey_str = key_to_str((arrayKeys[i]).sKey);
+
+        fprintf(keys, "%s %s\n", pKey_str, sKey_str);
+
+        free(pKey_str);
+        free(sKey_str);
+    }
+
+    // selection des candidats
+
+    int index;
+
+    // tableau des index des candidats dans le tableau des keys
+    int * index_candidats = (int *) malloc(sizeof(int) * nc);
+
+    i = 0;
+
+    while(i < nc){
+
+        index = rand() % nv;
+
+        if((arrayKeys[index]).statut == 0){
+
+            // changement du statut
+
+            (arrayKeys[index]).statut == 1;
+
+            char * pKey_c = key_to_str((arrayKeys[index]).pKey);
+            fprintf(candidats, "%s\n", pKey_c);
+            free(pKey_c);
+
+            index_candidats[i] = index;
+            i++;
+        }
+    }
+
+    int choix;
+
+    for(i = 0; i < nv; i++){
+
+        choix = rand() % nc;
+
+        char * mess = key_to_str(arrayKeys[
+            (index_candidats[choix])].pKey);
+
+        Signature * sgn = sign(mess, arrayKeys[i].sKey);
+
+        Protected * pr = init_protected(arrayKeys[i].pKey, mess, sgn);
+
+        char * pr_str = protected_to_str(pr);
+        fprintf(declarations, "%s\n", pr_str);
+        free(pr_str);
+
+        free(mess);
+        free_signature(sgn);
+
+        // la cle publique de protected est free a la fin
+        free(pr->mess);
+        free(pr);
+    }
+
+    for(i = 0; i < nv; i++){
+        free(arrayKeys[i].pKey);
+        free(arrayKeys[i].sKey);
+    }
+
+    free(index_candidats);
+    free(arrayKeys);
+
     fclose(keys);
     fclose(candidats);
     fclose(declarations);
