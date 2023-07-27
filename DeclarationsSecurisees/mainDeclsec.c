@@ -38,6 +38,7 @@ int main(){
     
     Key* k = str_to_key(chaine);
     printf("str_to_key : %lx , %lx \n", k->v, k->n);
+    free(k);
 
     //Testing signature
 
@@ -54,6 +55,7 @@ int main(){
     Signature * sgn = sign(mess, sKey);
     printf("signature : ");
     print_long_vector(sgn->content, sgn->size);
+    free(chaine);
     chaine = signature_to_str(sgn);
 
     printf("signature to str : %s \n", chaine);
@@ -81,6 +83,10 @@ int main(){
     free(sKey);
     free(pKeyC);
     free(sKeyC);
+
+    free(sgn);
+    free(pr);
+
     free(chaine);
     free(mess);
 

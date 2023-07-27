@@ -5,6 +5,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <time.h>
 
 #include "crypto.h"
 
@@ -90,6 +91,7 @@ int witness(long a, long b, long d, long p){
 }
 
 long rand_long(long low, long up){
+    srand(time(NULL));
     return rand () % (up - low + 1)+ low;
 }
 
