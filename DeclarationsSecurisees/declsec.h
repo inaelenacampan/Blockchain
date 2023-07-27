@@ -104,4 +104,7 @@ int verify(Protected* pr);
 char * protected_to_str(Protected* pr);
 Protected * str_to_protected(char * str);
 
+void free_signature(Signature * pr);
+void free_protected(Protected * pr);
+
 #endif

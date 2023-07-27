@@ -233,3 +233,21 @@ Protected * str_to_protected(char * str){
 
     return init_protected(pKey, mess, s);
 }
+
+void free_signature(Signature * sgn){
+    free(sgn->content);
+    free(sgn);
+}
+
+void free_protected(Protected * pr){
+    if(pr->pKey !=NULL){
+        free(pr->pKey);
+    }
+    if(pr->mess !=NULL){
+        free(pr->mess);
+    }
+    if(pr->sgn!=NULL){
+        free_signature(pr->sgn);
+    }
+    free(pr);
+}
