@@ -251,3 +251,39 @@ void free_protected(Protected * pr){
     }
     free(pr);
 }
+
+/*
+    Exercice 4 : Création de données pour simuler le processus de vote
+*/
+
+void generate_random_data(int nv, int nc){
+
+    /*
+        nv = nombre citoyens
+        nc = nombre candidats
+
+        Résultats : 
+            - keys.txt contenant tous ces couples de clés
+            - candidates.txt contenant la clé publique de tous les candidats (choisis parmi les votants)
+            - declarations.txt contenant toutes les déclarations signées
+    */
+
+    /*Les trois fichiers à remplir*/
+
+    FILE *keys = NULL;
+    keys = fopen("../Data/keys.txt","w");
+
+    FILE *candidats = NULL;
+    candidats = fopen("../Data/candidats.txt","w");
+
+    FILE *declarations = NULL;
+    declarations = fopen("../Data/declarations.txt","w");
+
+
+
+
+    
+    fclose(keys);
+    fclose(candidats);
+    fclose(declarations);
+}

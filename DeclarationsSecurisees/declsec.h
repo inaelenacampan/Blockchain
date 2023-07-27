@@ -107,4 +107,10 @@ Protected * str_to_protected(char * str);
 void free_signature(Signature * pr);
 void free_protected(Protected * pr);
 
+/*
+    Exercice 4 : Création de données pour simuler le processus de vote
+*/
+
+void generate_random_data(int nv, int nc);
+
 #endif

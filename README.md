@@ -73,4 +73,6 @@ Dossier _`DeclarationsSecurisees`_ contenant :
     int verify(Protected* pr);
     char * protected_to_str(Protected* pr);
     Protected * str_to_protected(char * str);
+
+    void generate_random_data(int nv, int nc);
 ```

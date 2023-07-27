@@ -99,5 +99,7 @@ int main(){
     free(chaine3);
     free(mess);
 
+    generate_random_data(1000, 5);
+
     return 0;
 }
