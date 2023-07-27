@@ -74,5 +74,9 @@ Dossier _`DeclarationsSecurisees`_ contenant :
     char * protected_to_str(Protected* pr);
     Protected * str_to_protected(char * str);
 
+    /*
+        Exercice 4 : Création de données pour simuler le processus de vote
+    */
+    
     void generate_random_data(int nv, int nc);
 ```
