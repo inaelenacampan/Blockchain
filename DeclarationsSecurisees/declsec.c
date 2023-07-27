@@ -29,8 +29,6 @@ void init_key(Key* key, long val, long n){
 
 void init_pair_keys(Key* pKey, Key* sKey, long low_size, long up_size){
 
-    srand (time(NULL));
-
     long p = random_prime_number (low_size, up_size, K) ;
     long q = random_prime_number (low_size , up_size, K) ;
 
