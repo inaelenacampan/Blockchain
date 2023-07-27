@@ -43,7 +43,7 @@ void init_pair_keys(Key* pKey, Key* sKey, long low_size, long up_size){
 
     //Pour avoir des cles positives :
     if (u <0){
-        long t = (p -1) *(q -1);
+        long t =(p-1) *(q-1);
         u = u + t; //on aura toujours s*u mod t = 1
     }
 
@@ -175,7 +175,7 @@ int verify(Protected* pr){
     int res = strcmp(chaine, pr->mess);
     
     free(chaine);
-    return !(res == 0);
+    return (res == 0);
 }
 
 /*
@@ -197,5 +197,39 @@ char * protected_to_str(Protected* pr){
 }
 
 Protected * str_to_protected(char * str){
-    return NULL;
+
+    char cle[SIZE_MAX];
+    int cpt = 0;
+
+    while(str[cpt]!=' '){
+        cle[cpt] = str[cpt];
+        cpt++;
+    }
+
+    cle[cpt] = '\0';
+
+    Key * pKey = str_to_key(cle);
+
+    int i = 0;
+    char mess[SIZE_MAX];
+
+    while(str[cpt+i+1]!=' '){
+        mess[i] = str[cpt + i+1];
+        i++;
+    }
+
+    mess[i] = '\0';
+
+    int k = 0;
+    char sgn[SIZE_MAX];
+    while(str[cpt + i + k+2]!='\0'){
+        sgn[k] = str[cpt + i + k+2];
+        k++;
+    }
+
+    sgn[k] = '\0';
+
+    Signature * s = str_to_signature(sgn);
+
+    return init_protected(pKey, mess, s);
 }

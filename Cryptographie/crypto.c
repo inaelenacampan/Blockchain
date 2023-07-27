@@ -169,18 +169,18 @@ long extended_gcd ( long s, long t, long *u, long *v){
     /*
         version récursive de l'algorithme d'euclide
     */
-    if (s == 0){
-        *u = 0;
-        *v = 1;
-        return t;
+    if (t == 0){
+        *u = 1;
+        *v = 0;
+        return s;
     }
 
     long uPrim , vPrim ;
-    long gcd = extended_gcd (t%s, s, &uPrim , & vPrim );
-    *u = vPrim -(t/s)* uPrim ;
-    *v = uPrim ;
+    long gcd = extended_gcd (t, s%t, &uPrim , &vPrim );
+    *u = vPrim;
+    *v = uPrim - (s/t)* vPrim ;
 
-    return gcd ;
+    return gcd;
 }
 
 /*
