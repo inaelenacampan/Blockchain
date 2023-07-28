@@ -10,7 +10,7 @@
 
 Dossier _`Cryptographie`_ contenant :
 
-+ `crypto.c` et `crypto.h` (fichiers qui definissent les fonctions de la bibliothéques)
++ `crypto.c` et `crypto.h` (fichiers qui definissent les fonctions de la bibliothéque)
 + `mainCrypto.c` (fichier de tests)
 
 ```c
@@ -79,4 +79,18 @@ Dossier _`DeclarationsSecurisees`_ contenant :
     */
     
     void generate_random_data(int nv, int nc);
+```
+
+### Partie 3 : Base de déclarations centralisée
+
+Dossier _`BaseDeDonnees`_ contenant :
+
++ `list.c` et `list.h` (fichiers qui definissent les fonctions pour manipuler des listes simplement chainées)
+
+```c
+    /*
+        Exercice 5 : Lecture et stockage des données dans des listes chainées
+    */
+
+    CellKey* create_cell_key(Key* key);
 ```

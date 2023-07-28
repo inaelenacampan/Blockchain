@@ -1,4 +1,4 @@
-all : Cryptographie/mainCrypto DeclarationsSecurisees/mainDeclsec
+all : Cryptographie/mainCrypto DeclarationsSecurisees/mainDeclsec BaseDeDonnees/mainList
 
 Cryptographie/mainCrypto.o : Cryptographie/mainCrypto.c Cryptographie/crypto.h
 	gcc -g -o Cryptographie/mainCrypto.o -c Cryptographie/mainCrypto.c
@@ -18,5 +18,14 @@ DeclarationsSecurisees/declsec.o : DeclarationsSecurisees/declsec.c Declarations
 DeclarationsSecurisees/mainDeclsec : DeclarationsSecurisees/mainDeclsec.o DeclarationsSecurisees/declsec.o Cryptographie/crypto.o
 	gcc -o DeclarationsSecurisees/mainDeclsec DeclarationsSecurisees/mainDeclsec.o DeclarationsSecurisees/declsec.o Cryptographie/crypto.o
 
+BaseDeDonnees/mainList.o : BaseDeDonnees/mainList.c BaseDeDonnees/list.h DeclarationsSecurisees/declsec.h Cryptographie/crypto.h
+	gcc -g -o BaseDeDonnees/mainList.o -c BaseDeDonnees/mainList.c
+
+BaseDeDonnees/list.o : BaseDeDonnees/list.c BaseDeDonnees/list.h DeclarationsSecurisees/declsec.h Cryptographie/crypto.h
+	gcc -g -o BaseDeDonnees/list.o -c BaseDeDonnees/list.c
+
+BaseDeDonnees/mainList : BaseDeDonnees/mainList.o BaseDeDonnees/list.o DeclarationsSecurisees/declsec.o Cryptographie/crypto.o
+	gcc -o BaseDeDonnees/mainList BaseDeDonnees/mainList.o BaseDeDonnees/list.o DeclarationsSecurisees/declsec.o Cryptographie/crypto.o
+
 clean : 
-	rm -f *.o Cryptographie/*.o Cryptographie/mainCrypto DeclarationsSecurisees/*.o DeclarationsSecurisees/mainDeclsec
+	rm -f *.o Cryptographie/*.o Cryptographie/mainCrypto DeclarationsSecurisees/*.o DeclarationsSecurisees/mainDeclsec BaseDeDonnees/*.o BaseDeDonnees/mainList
