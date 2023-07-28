@@ -11,5 +11,14 @@
 #include "../DeclarationsSecurisees/declsec.h"
 
 int main(){
+
+    CellKey * listC = read_public_keys("../Data/candidats.txt");
+    printf("--------- CANDIDATS ---------\n");
+    print_list_keys(listC);
+
+    CellKey * listV = read_public_keys("../Data/keys.txt");
+    printf("--------- VOTANTS ---------\n");
+    print_list_keys(listV);
+
     return 0;
 }

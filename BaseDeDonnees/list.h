@@ -27,4 +27,22 @@ typedef struct cellKey {
 
 CellKey* create_cell_key(Key* key);
 
+/*
+    Question 5.2
+*/
+
+void add_key(CellKey** list, Key* key);
+
+/*
+    Question 5.3
+*/
+
+CellKey* read_public_keys(char * file);
+
+/*
+    Question 5.4
+*/
+
+void print_list_keys(CellKey* LCK);
+
 #endif
