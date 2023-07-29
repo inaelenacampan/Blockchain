@@ -20,5 +20,8 @@ int main(){
     printf("--------- VOTANTS ---------\n");
     print_list_keys(listV);
 
+    delete_list_keys(listC);
+    delete_list_keys(listV);
+
     return 0;
 }

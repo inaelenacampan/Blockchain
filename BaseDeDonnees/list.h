@@ -45,4 +45,11 @@ CellKey* read_public_keys(char * file);
 
 void print_list_keys(CellKey* LCK);
 
+/*
+    Question 5.5
+*/
+
+void delete_cell_key(CellKey* c);
+void delete_list_keys(CellKey* LCK);
+
 #endif

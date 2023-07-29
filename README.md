@@ -96,4 +96,6 @@ Dossier _`BaseDeDonnees`_ contenant :
     void add_key(CellKey** list, Key* key);
     CellKey* read_public_keys(char * file);
     void print_list_keys(CellKey* LCK);
+    void delete_cell_key(CellKey* c);
+    void delete_list_keys(CellKey* LCK);
 ```

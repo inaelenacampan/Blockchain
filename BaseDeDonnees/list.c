@@ -81,3 +81,26 @@ void print_list_keys(CellKey* LCK){
         copy = copy->next;
     }
 }
+
+/*
+    Question 5.5
+*/
+
+void delete_cell_key(CellKey* c){
+    free(c->data);
+    free(c);
+}
+
+void delete_list_keys(CellKey* LCK){
+
+    CellKey * tmp = LCK;
+
+    while(tmp != NULL){
+        tmp = LCK;
+        LCK = LCK->next;
+
+        delete_cell_key(tmp);
+
+        tmp = LCK;
+    }
+}
