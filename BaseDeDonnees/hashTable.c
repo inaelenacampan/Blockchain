@@ -124,6 +124,55 @@ Key* compute_winner(CellProtected* decl, CellKey* candidates, CellKey* voters, i
     HashTable * hC = create_hashtable(candidates, sizeC);
     HashTable * hV = create_hashtable(voters, sizeV);
 
+    Protected * current;
+    Key * pKeyV, * pKeyC;
+    int indexV, indexC;
 
-    return NULL;
+    while(decl){
+        current = decl->data;
+
+        pKeyV = current->pKey;
+
+        indexV = find_position(hV, pKeyV);
+
+        //le votant existe et il n'a pas deja vote
+        if((hV->tab)[indexV]!=NULL && (hV->tab)[indexV] -> val == 0){
+
+            pKeyC = str_to_key(current->mess);
+            indexC = find_position(hC, pKeyC);
+
+            if(hC->tab[indexC] != NULL){
+                (hC->tab)[indexC]->val ++;
+                (hV->tab)[indexV]->val = 1;
+            }
+
+            free(pKeyC);
+        }
+        
+        decl = decl->next;
+    }
+
+    // calculer le gagnant de l'election
+
+    int score = -1;
+    int pos = 0;
+    int winner = 0;
+
+    while(candidates){
+        pos = find_position(hC, candidates->data);
+
+        if((hC->tab)[pos]->val > score){
+            score = (hC->tab)[pos]->val;
+            winner = pos;
+        }
+        candidates = candidates->next;
+    }
+
+    Key * keyWinner = (Key *) malloc(sizeof(Key));
+    init_key(keyWinner, ((hC->tab)[winner]->key)->v, ((hC->tab)[winner]->key)->n);
+
+    delete_hashtable(hC);
+    delete_hashtable(hV);
+
+    return keyWinner;
 }
