@@ -8,6 +8,7 @@
 #include <time.h>
 
 #include "list.h"
+#include "hashTable.h"
 #include "../DeclarationsSecurisees/declsec.h"
 
 int main(){

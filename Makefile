@@ -24,8 +24,11 @@ BaseDeDonnees/mainList.o : BaseDeDonnees/mainList.c BaseDeDonnees/list.h Declara
 BaseDeDonnees/list.o : BaseDeDonnees/list.c BaseDeDonnees/list.h DeclarationsSecurisees/declsec.h Cryptographie/crypto.h
 	gcc -g -o BaseDeDonnees/list.o -c BaseDeDonnees/list.c
 
-BaseDeDonnees/mainList : BaseDeDonnees/mainList.o BaseDeDonnees/list.o DeclarationsSecurisees/declsec.o Cryptographie/crypto.o
-	gcc -o BaseDeDonnees/mainList BaseDeDonnees/mainList.o BaseDeDonnees/list.o DeclarationsSecurisees/declsec.o Cryptographie/crypto.o
+BaseDeDonnees/hashTable.o : BaseDeDonnees/hashTable.c BaseDeDonnees/hashTable.h BaseDeDonnees/list.h DeclarationsSecurisees/declsec.h Cryptographie/crypto.h
+	gcc -g -o BaseDeDonnees/hashTable.o -c BaseDeDonnees/hashTable.c
+
+BaseDeDonnees/mainList : BaseDeDonnees/mainList.o BaseDeDonnees/hashTable.o BaseDeDonnees/list.o DeclarationsSecurisees/declsec.o Cryptographie/crypto.o
+	gcc -o BaseDeDonnees/mainList BaseDeDonnees/mainList.o BaseDeDonnees/hashTable.o BaseDeDonnees/list.o DeclarationsSecurisees/declsec.o Cryptographie/crypto.o
 
 clean : 
 	rm -f *.o Cryptographie/*.o Cryptographie/mainCrypto DeclarationsSecurisees/*.o DeclarationsSecurisees/mainDeclsec BaseDeDonnees/*.o BaseDeDonnees/mainList

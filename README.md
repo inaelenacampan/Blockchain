@@ -119,4 +119,5 @@ Dossier _`BaseDeDonnees`_ contenant :
     HashCell* create_hashcell(Key* key);
     int hash_function(Key* key, int size);
     int find_position(HashTable* t, Key* key);
+    HashTable* create_hashtable(CellKey* keys, int size);
 ```

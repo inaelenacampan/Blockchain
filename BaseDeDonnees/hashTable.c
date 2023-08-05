@@ -45,5 +45,30 @@ int hash_function(Key* key, int size){
 */
 
 int find_position(HashTable* t, Key* key){
-    return 0;
+
+    HashCell ** tab = t->tab;
+    int n = t->size;
+
+    int index = hash_function(key, n);
+    int i = 0;
+
+    while(i < n){
+        if(tab[index % n]->key == NULL){
+            return index;
+        }
+        else if(tab[index % n]->key == key){
+            return index;
+        }
+        i++;
+        index ++;
+    }
+    return index;
+}
+
+/*
+    Question 6.5
+*/
+
+HashTable* create_hashtable(CellKey* keys, int size){
+    return NULL;
 }

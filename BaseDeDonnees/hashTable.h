@@ -45,4 +45,10 @@ int hash_function(Key* key, int size);
 
 int find_position(HashTable* t, Key* key);
 
+/*
+    Question 6.5
+*/
+
+HashTable* create_hashtable(CellKey* keys, int size);
+
 #endif
