@@ -49,18 +49,16 @@ int find_position(HashTable* t, Key* key){
     HashCell ** tab = t->tab;
     int n = t->size;
 
-    int index = hash_function(key, n);
+    int h = hash_function(key, n);
     int i = 0;
+    int index = (h+i)%n;
 
-    while(i < n){
-        if(tab[index % n]->key == NULL){
-            return index;
-        }
-        else if((tab[index % n]->key)->v == key->v && (tab[index % n]->key)->n == key->n){
+    while(tab[index] != NULL){
+        if((tab[index % n]->key)->v == key->v && (tab[index % n]->key)->n == key->n){
             return index;
         }
         i++;
-        index ++;
+        index = (h+i)%n;
     }
     return index;
 }
@@ -73,7 +71,7 @@ HashTable* create_hashtable(CellKey* keys, int size){
 
     HashTable * new = (HashTable*) malloc(sizeof(HashTable));
     new->size = size;
-    new->tab = (HashCell **) malloc(sizeof(HashCell*) * size);
+    new->tab = (HashCell **) malloc(sizeof(HashCell *) * size);
 
     for (int i = 0; i < size; i++) {
         (new->tab)[i] = NULL;

@@ -25,6 +25,15 @@ int main(){
     printf("--------- DECLARATIONS ---------\n");
     print_list_protected(listP);
 
+    delete_invalid_protected(&listP);
+
+    Key * winner = compute_winner(listP, listC, listV, 15, 9000);
+    char * winner_str = key_to_str(winner);
+
+    printf("\nGAGNANT : %s\n", winner_str);
+
+    free(winner_str);
+    free(winner);
 
     delete_list_keys(listC);
     delete_list_keys(listV);
