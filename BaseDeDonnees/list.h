@@ -17,6 +17,11 @@ typedef struct cellKey {
     struct cellKey * next ;
 } CellKey ;
 
+typedef struct cellProtected {
+    Protected * data ;
+    struct cellProtected * next ;
+} CellProtected ;
+
 /*
     Exercice 5 : Lecture et stockage des données dans des listes chainées
 */
@@ -37,7 +42,7 @@ void add_key(CellKey** list, Key* key);
     Question 5.3
 */
 
-CellKey* read_public_keys(char * file);
+CellKey* read_public_keys(char * file_name);
 
 /*
     Question 5.4
@@ -51,5 +56,36 @@ void print_list_keys(CellKey* LCK);
 
 void delete_cell_key(CellKey* c);
 void delete_list_keys(CellKey* LCK);
+
+/*
+    Question 5.6
+*/
+
+CellProtected* create_cell_protected(Protected* pr);
+
+/*
+    Question 5.7
+*/
+
+void add_protected(CellProtected** list, Protected* pr);
+
+/*
+    Question 5.8
+*/
+
+CellProtected* read_protected(char * file);
+
+/*
+    Question 5.9
+*/
+
+void print_list_protected(CellProtected* LCP);
+
+/*
+    Question 5.10
+*/
+
+void delete_cell_protected(CellProtected* c);
+void delete_list_protected(CellProtected* LCP);
 
 #endif

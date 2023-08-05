@@ -94,8 +94,15 @@ Dossier _`BaseDeDonnees`_ contenant :
 
     CellKey* create_cell_key(Key* key);
     void add_key(CellKey** list, Key* key);
-    CellKey* read_public_keys(char * file);
+    CellKey* read_public_keys(char * file_name);
     void print_list_keys(CellKey* LCK);
     void delete_cell_key(CellKey* c);
     void delete_list_keys(CellKey* LCK);
+
+    CellProtected* create_cell_protected(Protected* pr);
+    void add_protected(CellProtected** list, Protected* pr);
+    CellProtected* read_protected(char * file);
+    void print_list_protected(CellProtected* LCP);
+    void delete_cell_protected(CellProtected* c);
+    void delete_list_protected(CellProtected* LCP);
 ```
