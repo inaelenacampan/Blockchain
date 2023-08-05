@@ -70,5 +70,43 @@ int find_position(HashTable* t, Key* key){
 */
 
 HashTable* create_hashtable(CellKey* keys, int size){
-    return NULL;
+
+    HashTable * new = (HashTable*) malloc(sizeof(HashTable));
+    new->size = size;
+    new->tab = (HashCell **) malloc(sizeof(HashCell*) * size);
+
+    CellKey * head = keys;
+
+    int index;
+
+    while(head){
+
+        index = find_position(new, head->data);
+        new->tab[index] = create_hashcell(head->data);
+
+        head = head->next;
+    }
+
+    return new;
+}
+
+/*
+    Question 6.6
+*/
+
+void delete_hashCell(HashCell* c){
+    free(c->key);
+    free(c);
+}
+
+void delete_hashtable(HashTable* t){
+
+    for(int i = 0; i < t->size; i++){
+        if(t->tab[i] != NULL){
+            delete_hashCell(t->tab[i]);
+        }
+    }
+
+    free(t->tab);
+    free(t);
 }

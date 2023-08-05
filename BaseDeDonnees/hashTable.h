@@ -51,4 +51,10 @@ int find_position(HashTable* t, Key* key);
 
 HashTable* create_hashtable(CellKey* keys, int size);
 
+/*
+    Question 6.6
+*/
+
+void delete_hashtable(HashTable* t);
+
 #endif

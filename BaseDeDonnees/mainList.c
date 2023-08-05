@@ -21,13 +21,13 @@ int main(){
     printf("--------- VOTANTS ---------\n");
     print_list_keys(listV);
 
-    delete_list_keys(listC);
-    delete_list_keys(listV);
-
     CellProtected* listP = read_protected("../Data/declarations.txt");
     printf("--------- DECLARATIONS ---------\n");
     print_list_protected(listP);
 
+
+    delete_list_keys(listC);
+    delete_list_keys(listV);
     delete_list_protected(listP);
     
     return 0;
