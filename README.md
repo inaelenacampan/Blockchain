@@ -105,4 +105,16 @@ Dossier _`BaseDeDonnees`_ contenant :
     void print_list_protected(CellProtected* LCP);
     void delete_cell_protected(CellProtected* c);
     void delete_list_protected(CellProtected* LCP);
+
+    void delete_invalid_protected(CellProtected ** list);
+```
+
++ `hashTable.c` et `hashTable.h` (fichiers qui definissent les fonctions pour manipuler une table de hachage)
+
+```c
+    /*
+        Exercice 6 : Détermination du gagnant de l'élection
+    */
+
+
 ```

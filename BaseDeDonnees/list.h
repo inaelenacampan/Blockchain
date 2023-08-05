@@ -88,4 +88,6 @@ void print_list_protected(CellProtected* LCP);
 void delete_cell_protected(CellProtected* c);
 void delete_list_protected(CellProtected* LCP);
 
+void delete_invalid_protected(CellProtected ** list);
+
 #endif

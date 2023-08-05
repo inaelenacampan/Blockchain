@@ -188,3 +188,35 @@ void delete_list_protected(CellProtected* LCP){
         tmp = LCP;
     }
 }
+
+void delete_invalid_protected(CellProtected ** list){
+    
+    CellProtected *tmp;
+
+    while ((*list != NULL) && (verify((*list)->data) == 0)) {
+        tmp = *list;
+        *list = (*list)->next;
+        delete_cell_protected(tmp);
+    }
+
+    CellProtected *prec = *list;
+
+    if (prec == NULL) {
+        return;
+    }
+
+    CellProtected *c = (*list)->next;
+
+    while (c != NULL) {
+        if (verify(c->data) == 0) {
+            prec->next = c->next;
+            tmp = c;
+            delete_cell_protected(tmp);
+        }
+
+        else {
+            prec = c;
+        }
+        c = c->next;
+    }
+}
