@@ -57,4 +57,10 @@ HashTable* create_hashtable(CellKey* keys, int size);
 
 void delete_hashtable(HashTable* t);
 
+/*
+    Question 6.7
+*/
+
+Key* compute_winner(CellProtected* decl, CellKey* candidates, CellKey* voters, int sizeC, int sizeV);
+
 #endif

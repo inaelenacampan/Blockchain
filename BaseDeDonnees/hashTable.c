@@ -56,7 +56,7 @@ int find_position(HashTable* t, Key* key){
         if(tab[index % n]->key == NULL){
             return index;
         }
-        else if(tab[index % n]->key == key){
+        else if((tab[index % n]->key)->v == key->v && (tab[index % n]->key)->n == key->n){
             return index;
         }
         i++;
@@ -75,6 +75,10 @@ HashTable* create_hashtable(CellKey* keys, int size){
     new->size = size;
     new->tab = (HashCell **) malloc(sizeof(HashCell*) * size);
 
+    for (int i = 0; i < size; i++) {
+        (new->tab)[i] = NULL;
+    }
+
     CellKey * head = keys;
 
     int index;
@@ -82,7 +86,7 @@ HashTable* create_hashtable(CellKey* keys, int size){
     while(head){
 
         index = find_position(new, head->data);
-        new->tab[index] = create_hashcell(head->data);
+        (new->tab)[index] = create_hashcell(head->data);
 
         head = head->next;
     }
@@ -109,4 +113,17 @@ void delete_hashtable(HashTable* t){
 
     free(t->tab);
     free(t);
+}
+
+/*
+    Question 6.7
+*/
+
+Key* compute_winner(CellProtected* decl, CellKey* candidates, CellKey* voters, int sizeC, int sizeV){
+
+    HashTable * hC = create_hashtable(candidates, sizeC);
+    HashTable * hV = create_hashtable(voters, sizeV);
+
+
+    return NULL;
 }
