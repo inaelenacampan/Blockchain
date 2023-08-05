@@ -53,8 +53,8 @@ int find_position(HashTable* t, Key* key){
     int i = 0;
     int index = (h+i)%n;
 
-    while(tab[index] != NULL){
-        if((tab[index % n]->key)->v == key->v && (tab[index % n]->key)->n == key->n){
+    while(tab[index] != NULL && i < n){
+        if((tab[index]->key)->v == key->v && (tab[index]->key)->n == key->n){
             return index;
         }
         i++;
@@ -71,7 +71,7 @@ HashTable* create_hashtable(CellKey* keys, int size){
 
     HashTable * new = (HashTable*) malloc(sizeof(HashTable));
     new->size = size;
-    new->tab = (HashCell **) malloc(sizeof(HashCell *) * size);
+    new->tab = (HashCell **) malloc(sizeof(HashCell*) * size);
 
     for (int i = 0; i < size; i++) {
         (new->tab)[i] = NULL;
@@ -105,7 +105,8 @@ void delete_hashtable(HashTable* t){
 
     for(int i = 0; i < t->size; i++){
         if(t->tab[i] != NULL){
-            delete_hashCell(t->tab[i]);
+            // liberation des cases du tableau, sans les cles
+            free(t->tab[i]);
         }
     }
 
