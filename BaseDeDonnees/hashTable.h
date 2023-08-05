@@ -27,6 +27,22 @@ typedef struct hashtable {
     int size ;
 } HashTable ;
 
+/*
+    Question 6.2
+*/
 
+HashCell* create_hashcell(Key* key);
+
+/*
+    Question 6.3
+*/
+
+int hash_function(Key* key, int size);
+
+/*
+    Question 6.4
+*/
+
+int find_position(HashTable* t, Key* key);
 
 #endif

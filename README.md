@@ -116,5 +116,7 @@ Dossier _`BaseDeDonnees`_ contenant :
         Exercice 6 : Détermination du gagnant de l'élection
     */
 
-
+    HashCell* create_hashcell(Key* key);
+    int hash_function(Key* key, int size);
+    int find_position(HashTable* t, Key* key);
 ```
