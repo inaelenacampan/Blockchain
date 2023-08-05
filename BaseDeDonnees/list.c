@@ -189,6 +189,10 @@ void delete_list_protected(CellProtected* LCP){
     }
 }
 
+/*
+    Question 6.1
+*/
+
 void delete_invalid_protected(CellProtected ** list){
     
     CellProtected *tmp;
