@@ -77,16 +77,14 @@ HashTable* create_hashtable(CellKey* keys, int size){
         (new->tab)[i] = NULL;
     }
 
-    CellKey * head = keys;
-
     int index;
 
-    while(head){
+    while(keys){
 
-        index = find_position(new, head->data);
-        (new->tab)[index] = create_hashcell(head->data);
+        index = find_position(new, keys->data);
+        (new->tab)[index] = create_hashcell(keys->data);
 
-        head = head->next;
+        keys = keys->next;
     }
 
     return new;
