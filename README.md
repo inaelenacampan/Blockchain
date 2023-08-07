@@ -124,3 +124,17 @@ Dossier _`BaseDeDonnees`_ contenant :
 
     Key* compute_winner(CellProtected* decl, CellKey* candidates, CellKey* voters, int sizeC, int sizeV);
 ```
+
+### Partie 4 : Blocs et persistance des données
+
+Dossier _`Blocs`_ contenant :
+
++ `block.c` et `block.h` (fichiers qui definissent les fonctions pour manipuler des blocs)
+
+```c
+    /*
+        Exercice 7 : Structure d'un block et persistance
+    */
+
+    
+```
