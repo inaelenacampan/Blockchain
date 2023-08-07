@@ -122,7 +122,8 @@ Dossier _`BaseDeDonnees`_ contenant :
     HashTable* create_hashtable(CellKey* keys, int size);
     void delete_hashtable(HashTable* t);
 
-    Key* compute_winner(CellProtected* decl, CellKey* candidates, CellKey* voters, int sizeC, int sizeV);
+    Key* compute_winner(CellProtected* decl, CellKey* candidates, CellKey* voters, 
+                        int sizeC, int sizeV);
 ```
 
 ### Partie 4 : Blocs et persistance des données
@@ -136,5 +137,5 @@ Dossier _`Blocs`_ contenant :
         Exercice 7 : Structure d'un block et persistance
     */
 
-    
+
 ```
