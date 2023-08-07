@@ -30,5 +30,12 @@ typedef struct block {
     Question 7.1
 */
 
+void block_to_file(char * file_name, Block * b);
+
+/*
+    Question 7.2
+*/
+
+Block * file_to_block(char * file_name);
 
 #endif

@@ -136,6 +136,7 @@ Dossier _`Blocs`_ contenant :
     /*
         Exercice 7 : Structure d'un block et persistance
     */
-
-
+    
+    void block_to_file(char * file_name, Block * b);
+    Block * file_to_block(char * file_name);
 ```
