@@ -126,6 +126,8 @@ Dossier _`BaseDeDonnees`_ contenant :
                         int sizeC, int sizeV);
 ```
 
++ `mainList.c` (fichier de tests)
+
 ### Partie 4 : Blocs et persistance des données
 
 Dossier _`Blocs`_ contenant :
